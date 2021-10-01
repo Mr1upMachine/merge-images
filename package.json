@@ -1,0 +1,33 @@
+{
+  "name": "merge-images",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && live-server dist",
+    "build": "rimraf ./dist && tsc && npm run copy:files && npm run copy:assets && browserify dist/index.js -o dist/index.js -t [ babelify --presets [ \"@babel/preset-env\" ] ]",
+    "copy:assets": "copyfiles \"src/assets/**\" dist/assets -f",
+    "copy:files": "copyfiles src/index.html src/styles.css dist -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr1upMachine/merge-images.git"
+  },
+  "author": "Sean Hale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mr1upMachine/merge-images/issues"
+  },
+  "homepage": "https://github.com/Mr1upMachine/merge-images#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@types/node": "^16.10.2",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "copyfiles": "^2.4.1",
+    "live-server": "^1.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
